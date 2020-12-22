@@ -54,31 +54,3 @@ Returns a list of elements.
   (loop for x in list
         for elem = (funcall gen)
         collect `(,x ,elem)))
-
-(defclass person ()
-  (
-   (last-name :accessor last-name :initarg :last-name)
-   (first-name :accessor first-name :initarg :first-name)
-   (gender :accessor gender :initarg :gender)))
-
-(defparameter *male-names* `("Elias" "Emil" "Liam" "Felix" "Theo" "Paul" "Jonas" "Anton" "Markus" "Linus"))
-
-(defparameter *female-names* `("Emilia" "Ella" "Laura" "Lina" "Leonie" "Ida" "Sarah" "Anna" "Lena" "Julia"))
-
-(defparameter *last-names* `("Weber" "Müller" "Schneider" "Fischer" "Meyer" "Wagner" "Becker" "Schulz" "Hoffmann" "Koch"))
-
-(defgenerator gen-gender ()
-  (if (funcall (gen-bool)) 'MALE 'FEMALE))
-
-(defgenerator gen-firstname (gender)
-  (let ((name-list (if (equal gender 'MALE) *male-names* *female-names*)))
-    (funcall (gen-choose name-list))))
-
-(defgenerator gen-person ()
-  (let* ((gender (funcall (gen-gender)))
-         (first-name (funcall (gen-firstname gender)))
-         (last-name (funcall (gen-choose *last-names*))))
-    (make-instance 'person
-                   :gender gender
-                   :last-name last-name
-                   :first-name first-name)))

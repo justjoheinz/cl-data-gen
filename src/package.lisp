@@ -2,7 +2,7 @@
 
 (defpackage #:cl-data-gen
   (:use #:cl #:alexandria)
-  (:export :def-generator
+  (:export :defgenerator
            :gen-bool
            :gen-pos-int
            :gen-neg-int
