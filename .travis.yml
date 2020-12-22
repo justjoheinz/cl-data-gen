@@ -7,5 +7,7 @@ install:
 
 
 script:
-  - cl -e '(unless (asdf:test-system "cl-data-gen")
+  - cl -e '(ql:quickload "alexandria")
+           (ql:quickload "fiveam")
+           (unless (asdf:test-system "cl-data-gen")
              (uiop:quit 1))'
