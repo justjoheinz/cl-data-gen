@@ -1,4 +1,5 @@
-# cl-data-gen
+# cl-data-gen [![Build Status](https://travis-ci.com/justjoheinz/cl-data-gen.svg?branch=main)](https://travis-ci.com/justjoheinz/cl-data-gen)
+
 
 Generate lambda expression to create arbitrary datastructures.
 
