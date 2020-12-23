@@ -54,3 +54,10 @@ Returns a list of elements.
   (loop for x in list
         for elem = (funcall gen)
         collect `(,x ,elem)))
+
+(defgenerator gen-values (gens)
+  "Generates a value list from a list of generators"
+  (let ((result (loop for g in gens
+                      for r = (funcall g)
+                      collect r)))
+    (values-list result)))

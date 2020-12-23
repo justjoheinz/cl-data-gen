@@ -35,6 +35,14 @@
     (is (null result-empty))
     (is (equal (length result) 20))))
 
+(test check-gen-value
+      (multiple-value-bind (one two three)
+          (funcall
+           (gen-values (list (gen-const 1) (gen-const 2) (gen-const 3))))
+        (is (equal 1 one))
+        (is (equal 2 two))
+        (is (equal 3 three))))
+
 ;;(eval-when (:compile-toplevel :execute :load-toplevel)
 ;;  (run! 'all-tests)
 ;;  )
