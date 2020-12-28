@@ -16,6 +16,11 @@
     (is (or (zerop result)
             (minusp result)))))
 
+(test check-gen-int
+  (let* ((result (funcall (gen-int :min 5 :max 10))))
+    (is (and (< result 10)
+             (>= result 0)))))
+
 (test check-gen-const
   (let* ((result (funcall (gen-const 10))))
     (is (equal 10 result))))

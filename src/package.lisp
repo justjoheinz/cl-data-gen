@@ -6,6 +6,7 @@
            :gen-bool
            :gen-pos-int
            :gen-neg-int
+           :gen-int
            :gen-choose
            :gen-while
            :gen-const

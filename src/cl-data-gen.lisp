@@ -23,6 +23,10 @@
   "Generate a negative int in the range (-min, 0]"
   (- (funcall (gen-pos-int min))))
 
+(defgenerator gen-int (&key min max)
+  " Generate an int between min and max [min, max)]."
+  (+ min (random (- max min))))
+
 (defgenerator gen-choose (l)
   "Choose randomly one of the elements of the list l."
   (let* (
