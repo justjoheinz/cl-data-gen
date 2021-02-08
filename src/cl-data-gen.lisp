@@ -11,12 +11,12 @@
        (lambda () ,@body))))
 
 (defgenerator gen-bool ()
-  "Generates a randomly distributed truth value."
+  "Generate a randomly distributed truth value."
   (let ((b (random 2)))
     (if (zerop b) nil t)))
 
 (defgenerator gen-pos-int (max)
-  "Generates a positive int in the range [0,max)."
+  "Generate a positive int in the range [0,max)."
   (random max))
 
 (defgenerator gen-neg-int (min)
@@ -24,7 +24,7 @@
   (- (funcall (gen-pos-int min))))
 
 (defgenerator gen-int (&key min max)
-  " Generate an int between min and max [min, max)]."
+  "Generate an int between min and max [min, max)]."
   (+ min (random (- max min))))
 
 (defgenerator gen-choose (l)
@@ -54,7 +54,7 @@ Returns a list of elements.
         collect new-value))
 
 (defgenerator gen-zip-with (list gen)
-  "Generates elements which are associated with the elements of the list."
+  "Generate elements which are associated with the elements of the list."
   (loop for x in list
         for elem = (funcall gen)
         collect `(,x ,elem)))
